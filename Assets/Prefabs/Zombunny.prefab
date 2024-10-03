@@ -4987,6 +4987,7 @@ GameObject:
   - component: {fileID: 114926325598140600}
   - component: {fileID: 114245940197838398}
   - component: {fileID: 114491779595983746}
+  - component: {fileID: -5834298750373444199}
   m_Layer: 9
   m_Name: Zombunny
   m_TagString: Untagged
@@ -5204,7 +5205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f6618a0da65fa45b24d5105d5d8422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &114245940197838398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5232,3 +5232,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   stats: {fileID: 11400000, guid: 5c33e095d82f62842ba9aa1e77f5d8df, type: 2}
+--- !u!114 &-5834298750373444199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719079804300652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6008502b66eb94d8dff602a8b0bc05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

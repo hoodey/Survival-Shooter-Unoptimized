@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -31,15 +32,19 @@ public class EnemyHealth : MonoBehaviour
         agent = GetComponent <NavMeshAgent> ();
         rb = GetComponent <Rigidbody> ();
 
-        currentHealth = stats.startingHealth;
+        
     }
 
     private void OnEnable()
     {
         isDead = false;
         isSinking = false;
+        rb.isKinematic = false;
+        agent.enabled = true;
         capsuleCollider.isTrigger = false;
         enemyAudio.clip = stats.hurtClip;
+
+        currentHealth = stats.startingHealth;
     }
 
     void Update ()
@@ -80,15 +85,18 @@ public class EnemyHealth : MonoBehaviour
 
         enemyAudio.clip = stats.deathClip;
         enemyAudio.Play ();
+
+        StartCoroutine(StartSinking());
     }
 
 
-    public void StartSinking ()
+    IEnumerator StartSinking ()
     {
         agent.enabled = false;
         rb.isKinematic = true;
         isSinking = true;
         ScoreManager.score += stats.scoreValue;
-        Destroy (gameObject, 2f);
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 }

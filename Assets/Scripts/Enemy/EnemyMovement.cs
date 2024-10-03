@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     PlayerHealth currentPlayer;
     NavMeshAgent agent;
 
-    private void OnEnable()
+    private void Awake()
     {
         currentHP = GetComponent<EnemyHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;

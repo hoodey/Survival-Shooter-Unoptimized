@@ -727,6 +727,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 694235421}
+  - component: {fileID: 694235423}
+  - component: {fileID: 694235422}
   m_Layer: 0
   m_Name: HelephantSpawnPoint
   m_TagString: Untagged
@@ -749,6 +751,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 230, z: 0}
+--- !u!114 &694235422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694235420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 1299572197}
+  enemy: {fileID: 1819768538276330, guid: ebed7a3ef4be5458fb88a3c3a689c566, type: 3}
+  spawnTime: 3
+  spawnPoint: {fileID: 694235421}
+  pool: {fileID: 694235423}
+--- !u!114 &694235423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694235420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be66dc9b3a2c1354fbc0b517f891f7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: -2392688295167008686, guid: ebed7a3ef4be5458fb88a3c3a689c566,
+    type: 3}
+  enemyAmount: 20
 --- !u!1 &1072118398
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +868,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1084502847}
+  - component: {fileID: 1084502849}
+  - component: {fileID: 1084502848}
   m_Layer: 0
   m_Name: ZomBearSpawnPoint
   m_TagString: Untagged
@@ -856,6 +892,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 240, z: 0}
+--- !u!114 &1084502848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084502846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 1299572197}
+  enemy: {fileID: 1161934229116340, guid: 78e1368557eab4d62a5487e98c1b5c5f, type: 3}
+  spawnTime: 3
+  spawnPoint: {fileID: 1084502847}
+  pool: {fileID: 1084502849}
+--- !u!114 &1084502849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084502846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be66dc9b3a2c1354fbc0b517f891f7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 3147922251104049220, guid: 78e1368557eab4d62a5487e98c1b5c5f,
+    type: 3}
+  enemyAmount: 20
 --- !u!1 &1114380152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1454,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1456155940}
+  - component: {fileID: 1456155942}
+  - component: {fileID: 1456155941}
   m_Layer: 0
   m_Name: ZomBunnySpawnPoint
   m_TagString: Untagged
@@ -1408,6 +1478,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 130, z: 0}
+--- !u!114 &1456155941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456155939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 1299572197}
+  enemy: {fileID: 1719079804300652, guid: 4e3b7f611582d4dc7a9dd318242ed5e3, type: 3}
+  spawnTime: 3
+  spawnPoint: {fileID: 1456155940}
+  pool: {fileID: 1456155942}
+--- !u!114 &1456155942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456155939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be66dc9b3a2c1354fbc0b517f891f7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: -5834298750373444199, guid: 4e3b7f611582d4dc7a9dd318242ed5e3,
+    type: 3}
+  enemyAmount: 20
 --- !u!1 &1830089837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,7 +1937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2135234547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,8 +1953,8 @@ MonoBehaviour:
   playerHealth: {fileID: 1299572197}
   enemy: {fileID: 1719079804300652, guid: 4e3b7f611582d4dc7a9dd318242ed5e3, type: 3}
   spawnTime: 3
-  spawnPoints:
-  - {fileID: 1456155940}
+  spawnPoint: {fileID: 0}
+  pool: {fileID: 0}
 --- !u!4 &2135234548
 Transform:
   m_ObjectHideFlags: 0
@@ -1883,8 +1985,8 @@ MonoBehaviour:
   playerHealth: {fileID: 1299572197}
   enemy: {fileID: 1819768538276330, guid: ebed7a3ef4be5458fb88a3c3a689c566, type: 3}
   spawnTime: 10
-  spawnPoints:
-  - {fileID: 694235421}
+  spawnPoint: {fileID: 0}
+  pool: {fileID: 0}
 --- !u!114 &2135234550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1900,5 +2002,5 @@ MonoBehaviour:
   playerHealth: {fileID: 1299572197}
   enemy: {fileID: 1161934229116340, guid: 78e1368557eab4d62a5487e98c1b5c5f, type: 3}
   spawnTime: 3
-  spawnPoints:
-  - {fileID: 1084502847}
+  spawnPoint: {fileID: 0}
+  pool: {fileID: 0}

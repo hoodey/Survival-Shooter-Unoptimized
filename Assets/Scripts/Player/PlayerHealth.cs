@@ -57,7 +57,6 @@ public class PlayerHealth : MonoBehaviour
         damageImage.color = flashColour;
         for (int i = 1; i <= 4; i++)
         {
-            Debug.Log(i);
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, i/flashSpeed);
             yield return new WaitForSeconds(0.25f);
         }
