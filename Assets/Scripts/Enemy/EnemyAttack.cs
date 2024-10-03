@@ -3,16 +3,13 @@ using System.Collections;
 
 public class EnemyAttack : MonoBehaviour
 {
-    //public float timeBetweenAttacks = 0.5f;
-    //public int attackDamage = 10;
-
     [SerializeField] EnemyStats stats;
 
     Animator anim;
     GameObject player;
     PlayerHealth playerHealth;
     EnemyHealth enemyHealth;
-    bool playerInRange;
+
     float timer;
 
 
@@ -25,36 +22,26 @@ public class EnemyAttack : MonoBehaviour
     }
 
 
-    void OnTriggerEnter (Collider other)
+    void OnTriggerStay (Collider other)
     {
         if(other.gameObject == player)
         {
-            playerInRange = true;
+            if (timer >= stats.timeBetweenAttacks && enemyHealth.currentHealth > 0)
+            {
+                Attack();
+            }
         }
     }
-
-
-    void OnTriggerExit (Collider other)
-    {
-        if(other.gameObject == player)
-        {
-            playerInRange = false;
-        }
-    }
-
 
     void Update ()
     {
         timer += Time.deltaTime;
 
-        if(timer >= stats.timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
-        {
-            Attack ();
-        }
+
 
         if(playerHealth.currentHealth <= 0)
         {
-            anim.SetTrigger ("PlayerDead");
+            anim.SetTrigger (stats.id_playerDead);
         }
     }
 

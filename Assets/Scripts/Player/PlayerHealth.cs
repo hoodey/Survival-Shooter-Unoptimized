@@ -14,13 +14,14 @@ public class PlayerHealth : MonoBehaviour
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
+    int id_die = Animator.StringToHash("Die");
 
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
     bool isDead;
-    bool damaged;
+    //bool damaged;
 
 
     void Awake ()
@@ -35,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update ()
     {
-        if(damaged)
+        /*if(damaged)
         {
             damageImage.color = flashColour;
         }
@@ -43,13 +44,13 @@ public class PlayerHealth : MonoBehaviour
         {
             damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
-        damaged = false;
+        damaged = false;*/
     }
 
 
     public void TakeDamage (int amount)
     {
-        damaged = true;
+        //damaged = true;
 
         currentHealth -= amount;
 
@@ -61,8 +62,20 @@ public class PlayerHealth : MonoBehaviour
         {
             Death ();
         }
+
+        //StartCoroutine(ScreenFlash());
     }
 
+    IEnumerator ScreenFlash()
+    {
+        damageImage.color = flashColour;
+        for (int i = (int)flashSpeed; i > 0; i--)
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed/i);
+            yield return null;
+        }
+        
+    }
 
     void Death ()
     {
@@ -70,7 +83,7 @@ public class PlayerHealth : MonoBehaviour
 
         playerShooting.DisableEffects ();
 
-        anim.SetTrigger ("Die");
+        anim.SetTrigger (id_die);
 
         playerAudio.clip = deathClip;
         playerAudio.Play ();

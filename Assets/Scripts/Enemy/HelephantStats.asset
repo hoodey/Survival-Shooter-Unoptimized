@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba940b63a127240478d650c763de1da0, type: 3}
   m_Name: HelephantStats
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  timeBetweenAttacks: 0.5
+  attackDamage: 30
+  startingHealth: 300
   sinkSpeed: 2.5
-  scoreValue: 10
-  deathClip: {fileID: 0}
-  hurtClip: {fileID: 0}
+  scoreValue: 50
+  deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
+  hurtClip: {fileID: 8300000, guid: fce027b40770a44298a6f5a4233bfb04, type: 3}
   id_playerDead: 838909203
   id_dead: 1293411866

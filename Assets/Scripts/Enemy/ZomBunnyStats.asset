@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba940b63a127240478d650c763de1da0, type: 3}
   m_Name: ZomBunnyStats
   m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  attackDamage: 10
   startingHealth: 100
   sinkSpeed: 2.5
   scoreValue: 10
-  deathClip: {fileID: 0}
-  hurtClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
+  hurtClip: {fileID: 8300000, guid: 02e6208ec76314158a9f548f51fe9f11, type: 3}
   id_playerDead: 838909203
   id_dead: 1293411866

@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba940b63a127240478d650c763de1da0, type: 3}
   m_Name: ZomBearStats
   m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  attackDamage: 15
   startingHealth: 100
   sinkSpeed: 2.5
-  scoreValue: 10
-  deathClip: {fileID: 0}
-  hurtClip: {fileID: 0}
+  scoreValue: 25
+  deathClip: {fileID: 8300000, guid: 62366b8d2c37a49dca550841c741317f, type: 3}
+  hurtClip: {fileID: 8300000, guid: 1d4840678e677424b8921716c72397ea, type: 3}
   id_playerDead: 838909203
   id_dead: 1293411866
