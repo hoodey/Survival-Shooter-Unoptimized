@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -33,21 +34,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = startingHealth;
     }
 
-
-    void Update ()
-    {
-        /*if(damaged)
-        {
-            damageImage.color = flashColour;
-        }
-        else
-        {
-            damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-        }
-        damaged = false;*/
-    }
-
-
     public void TakeDamage (int amount)
     {
         //damaged = true;
@@ -63,18 +49,19 @@ public class PlayerHealth : MonoBehaviour
             Death ();
         }
 
-        //StartCoroutine(ScreenFlash());
+        StartCoroutine(ScreenFlash());
     }
 
     IEnumerator ScreenFlash()
     {
         damageImage.color = flashColour;
-        for (int i = (int)flashSpeed; i > 0; i--)
+        for (int i = 1; i <= 4; i++)
         {
-            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed/i);
-            yield return null;
+            Debug.Log(i);
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, i/flashSpeed);
+            yield return new WaitForSeconds(0.25f);
         }
-        
+
     }
 
     void Death ()
