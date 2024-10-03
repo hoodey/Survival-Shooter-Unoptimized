@@ -5,21 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class PauseHandler : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
+
+    private void OnEnable()
     {
-        if(Input.GetButtonDown("Pause"))
+        StaticInput.controls.Enable();
+        StaticInput.controls.Player.Escape.performed += Escape_performed;
+        
+    }
+
+    private void Escape_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        // if pause menu is open, pressing pause button means we want to unpause
+        if (SceneManager.GetSceneByName("Pause").isLoaded)
         {
-            // if pause menu is open, pressing pause button means we want to unpause
-            if(SceneManager.GetSceneByName("Pause").isLoaded)
-            {
-                UnpauseGame();
-            }
-            // if pause menu is not open, pressing pause button means we want to pause
-            else
-            {
-                PauseGame();
-            }
+            UnpauseGame();
+        }
+        // if pause menu is not open, pressing pause button means we want to pause
+        else
+        {
+            PauseGame();
         }
     }
 

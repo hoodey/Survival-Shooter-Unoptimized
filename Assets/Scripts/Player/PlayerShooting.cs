@@ -16,6 +16,7 @@ public class PlayerShooting : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+    bool firing = false;
 
 
     void Awake ()
@@ -25,14 +26,28 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent <LineRenderer> ();
         gunAudio = GetComponent<AudioSource> ();
         gunLight = GetComponent<Light> ();
+        StaticInput.controls.Enable();
+        StaticInput.controls.Player.Fire.started += Fire_performed;
+        StaticInput.controls.Player.Fire.canceled += Fire_performed;
     }
 
+    private void Fire_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        if (obj.started)
+        {
+            firing = true;
+        }
+        if (obj.canceled)
+        {
+            firing = false;
+        }
+    }
 
     void Update ()
     {
         timer += Time.deltaTime;
 
-		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+		if(firing && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
             Shoot ();
         }

@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int startingHealth = 100;
+    //public int startingHealth = 100;
     public int currentHealth;
-    public float sinkSpeed = 2.5f;
-    public int scoreValue = 10;
-    public AudioClip deathClip;
+    //public float sinkSpeed = 2.5f;
+    //public int scoreValue = 10;
+    //public AudioClip deathClip;
 
+    [SerializeField] EnemyStats stats;
 
     Animator anim;
+    
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     bool isDead;
     bool isSinking;
+    NavMeshAgent agent;
+    Rigidbody rb;
 
 
     void Awake ()
@@ -23,16 +28,25 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
+        agent = GetComponent <NavMeshAgent> ();
+        rb = GetComponent <Rigidbody> ();
 
-        currentHealth = startingHealth;
+        currentHealth = stats.startingHealth;
     }
 
+    private void OnEnable()
+    {
+        isDead = false;
+        isSinking = false;
+        capsuleCollider.isTrigger = false;
+        enemyAudio.clip = stats.hurtClip;
+    }
 
     void Update ()
     {
         if(isSinking)
         {
-            transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
+            transform.Translate (-Vector3.up * stats.sinkSpeed * Time.deltaTime);
         }
     }
 
@@ -62,19 +76,19 @@ public class EnemyHealth : MonoBehaviour
 
         capsuleCollider.isTrigger = true;
 
-        anim.SetTrigger ("Dead");
+        anim.SetTrigger (stats.id_dead);
 
-        enemyAudio.clip = deathClip;
+        enemyAudio.clip = stats.deathClip;
         enemyAudio.Play ();
     }
 
 
     public void StartSinking ()
     {
-        GetComponent <UnityEngine.AI.NavMeshAgent> ().enabled = false;
-        GetComponent <Rigidbody> ().isKinematic = true;
+        agent.enabled = false;
+        rb.isKinematic = true;
         isSinking = true;
-        ScoreManager.score += scoreValue;
+        ScoreManager.score += stats.scoreValue;
         Destroy (gameObject, 2f);
     }
 }
